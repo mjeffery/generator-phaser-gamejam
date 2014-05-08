@@ -1,0 +1,10 @@
+{
+  "name": "<%= _.slugify(projectName) %>",
+  "version": "<%= version %>",
+  "author": "<%= author %>",
+  "private": true,
+  "dependencies": {
+	"phaser-official": "latest"
+  }
+}
+
