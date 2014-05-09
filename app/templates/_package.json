@@ -1,7 +1,7 @@
 {
   "name": "<%= _.slugify(projectName) %>",
-"version": "<%= version %>",
-  "author": "<%= author %>",
+  "version": "0.0.0",
+  "author": "",
   "description": "",
   "repository": "",
   "dependencies": {},

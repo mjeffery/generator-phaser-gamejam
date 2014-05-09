@@ -3,8 +3,8 @@
 
 	Preload.prototype = {
 		preload: function() {
-			var x = <%= width - 150 %>,
-				y = <%= height - 4 %>
+			var x = <%= width / 2 - 150 %>,
+				y = <%= height / 2 - 4 %>,
 				add = this.add,
 				load = this.load;
 
@@ -13,6 +13,7 @@
 			var loadingBar = add.sprite(x, y, 'loading-bar');
 			load.setPreloadSprite(loadingBar);
 
+			load.bitmapFont('minecraftia', 'assets/font/minecraftia.png', 'assets/font/minecraftia.xml');
 			// Preload content here
 
 			load.onLoadComplete.addOnce(this.onLoadComplete, this);					
@@ -21,7 +22,7 @@
 			this.stage.backgroundColor = '#000000';
 		},
 		onLoadComplete: function() {
-			this.state.start('main-menu');
+			this.state.start('game');
 		}
 	};
 
