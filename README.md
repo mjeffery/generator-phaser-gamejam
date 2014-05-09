@@ -1,47 +1,63 @@
-# generator-phaser-gamejam [![Build Status](https://secure.travis-ci.org/mjeffery/generator-phaser-gamejam.png?branch=master)](https://travis-ci.org/mjeffery/generator-phaser-gamejam)
+# generator-phaser-gamejam
 
-> [Yeoman](http://yeoman.io) generator
+A [Yeoman](http://yeoman.io) generator for my [Phaser](http://phaser.io) gamejam workflow
 
+### Getting Started
 
-## Getting Started
-
-### What is Yeoman?
-
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
+Install Yeoman, [Bower](http://bower.io), and the [Grunt](http://gruntjs.com/) CLI from the from the [npm](https://npmjs.org) package repository.  
 
 ```
-$ npm install -g yo
+$ npm install -g yo grunt-cli bower
 ```
 
-### Yeoman Generators
+You will need to have [node](http://nodejs.org/) installed. For Windows users I also recommend [git bash](http://msysgit.github.io/).
 
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-phaser-gamejam from npm, run:
+This generator is not hosted on npm, so you will need to clone the repository and then use [npm link](https://www.npmjs.org/doc/cli/npm-link.html) to add it to the npm cache.
 
 ```
-$ npm install -g generator-phaser-gamejam
+$ git clone https://github.com/mjeffery/generator-phaser-gamejam.git
+$ cd generator-phaser-gamejam
+$ npm link
 ```
 
-Finally, initiate the generator:
+Create a project folder and the run the generator from inside with
 
 ```
 $ yo phaser-gamejam
 ```
 
-### Getting To Know Yeoman
+### Developing
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
+After the project is scaffolded you can find all the application code in the `src` folder.  Run the `serve` command to launch the development server. The page will live reload as you make changes to your code files.
 
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+```
+$ grunt serve
+```
 
+You should add new script files in the `src/scripts` directory and add them to `src/index.html` inside of the "game.js" build block.  These files will be minified during the build process.
 
-## License
+```html
+  <head>
+    ...
+    <!-- build:js game.js -->
+    <script src="scripts/newFileGoesHere.js"></script>
+    <script src="scripts/Boot.js"></script>
+		<script src="scripts/Preload.js"></script>
+		<script src="scripts/Game.js"></script>
+		<script src="scripts/main.js"></script>
+		<!-- endbuild -->
+	  ...
+```
 
-MIT
+You should add new assets in the `src/assets` folder. This folder will be processed for cache-busting druring the build process.
+
+### Building
+
+When you're ready to deploy a build, run the `dist` command to build a distribution and launch a local server. 
+
+```
+$ grunt dist
+```
+
+This will build a distribution in the `dist` folder.  All source files will be concatenated and minified.  The contents of the `assets` folder will processed for cache-busting and references in any Phaser loading code will be rewritten to match.
