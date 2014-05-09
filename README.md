@@ -43,14 +43,14 @@ You should add new script files in the `src/scripts` directory and add them to `
     <!-- build:js game.js -->
     <script src="scripts/newFileGoesHere.js"></script>
     <script src="scripts/Boot.js"></script>
-		<script src="scripts/Preload.js"></script>
-		<script src="scripts/Game.js"></script>
-		<script src="scripts/main.js"></script>
-		<!-- endbuild -->
-	  ...
+    <script src="scripts/Preload.js"></script>
+    <script src="scripts/Game.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+    ...
 ```
 
-You should add new assets in the `src/assets` folder. This folder will be processed for cache-busting druring the build process.
+You should add new assets in the `src/assets` folder. This folder will be processed during the build.
 
 ### Building
 
@@ -60,4 +60,10 @@ When you're ready to deploy a build, run the `dist` command to build a distribut
 $ grunt dist
 ```
 
-This will build a distribution in the `dist` folder.  All source files will be concatenated and minified.  The contents of the `assets` folder will processed for cache-busting and references in any Phaser loading code will be rewritten to match.
+All source files will be concatenated and minified.  The contents of the `assets` folder will processed for cache-busting and references in any Phaser loading code will be rewritten to match.
+
+The completed build will be in the `dist` folder. This folder can be hosted as-is (perhaps as a github page). 
+
+
+
+
