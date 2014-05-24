@@ -4,15 +4,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 
-function validate(input) {
-  var value = parseInt(input, 10);
-  if(isNaN(value))
-    return 'value must be a number';
-  else if(value <= 0) 
-    return 'value must be greater than zero';
-  else
-    return true;
-}
+var validate = require('../lib/validate');
 
 var PhaserGamejamGenerator = yeoman.generators.Base.extend({
   init: function () {
@@ -45,14 +37,14 @@ var PhaserGamejamGenerator = yeoman.generators.Base.extend({
       name: 'width',
       message: 'What is the canvas width?',
       default: 640,
-      validate: validate.bind(this)
+      validate: validate.number.bind(this)
     },
     {
       type: 'input',
       name: 'height',
       message: 'What is the canvas height?',
       default: 480,
-      validate: validate.bind(this)
+      validate: validate.number.bind(this)
     }];
 
     this.prompt(prompts, function (props) {
