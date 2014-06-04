@@ -5,7 +5,7 @@
 
 	_.extend(<%= constructor %>, {
 		preload: function(load) {
-			<% if(assetType === 'spritesheet') { %>load.spritesheet('<%= assetName %>', '<%= 'assets/spritesheet/' + assetFile %>', <%= framewidth %>, <%= frameheight %>)i;<% } else { %>load.image('<%= assetName %>', '<%= 'assets/image/' + assetFile %>');<% } %>
+			<% if(assetType === 'spritesheet') { %>load.spritesheet('<%= assetName %>', '<%= 'assets/spritesheet/' + assetFile %>', <%= framewidth %>, <%= frameheight %>);<% } else { %>load.image('<%= assetName %>', '<%= 'assets/image/' + assetFile %>');<% } %>
 		}
 	});
 
